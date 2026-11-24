@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DSE 學習資源網</title>
+  <title>DSE 題目與學習資源庫</title>
   <style>
-    /* 基本版面與字體設定 */
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
@@ -15,64 +14,103 @@
       line-height: 1.6;
     }
 
-    /* 頂部標題區塊 */
     header {
       background-color: #2c3e50;
       color: #ffffff;
-      padding: 3rem 1rem;
+      padding: 2.5rem 1rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
     header p {
       margin-top: 0.5rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #bdc3c7;
     }
 
-    /* 主要內容容器 */
     .container {
-      max-width: 800px;
+      max-width: 960px;
       margin: 2rem auto;
-      padding: 0 1.5rem;
+      padding: 0 1.2rem;
     }
 
-    /* 白色卡片區塊 */
+    .section-title {
+      color: #2c3e50;
+      border-left: 4px solid #3498db;
+      padding-left: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* 六科網格排版 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
     .card {
       background: #ffffff;
       border-radius: 8px;
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .card h2 {
+    .card h3 {
       margin-top: 0;
       color: #2980b9;
-      border-bottom: 2px solid #ecf0f1;
-      padding-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1.2rem;
     }
 
-    /* 按鈕樣式 */
     .btn {
       display: inline-block;
+      text-align: center;
       background-color: #3498db;
       color: #ffffff;
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1rem;
       text-decoration: none;
       border-radius: 5px;
-      margin-top: 0.5rem;
+      font-weight: bold;
       transition: background-color 0.2s;
     }
     .btn:hover {
       background-color: #2980b9;
     }
 
-    /* 頁尾 */
+    /* Google Drive 內嵌視窗區塊 */
+    .drive-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .drive-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+    }
+
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
       color: #7f8c8d;
       font-size: 0.9rem;
     }
@@ -81,24 +119,72 @@
 <body>
 
   <header>
-    <h1>歡迎來到我的 DSE 網站</h1>
-    <p>這裡記錄了我的學習筆記、練習與專案分享</p>
+    <h1>DSE 歷屆試題與練習資源庫</h1>
+    <p>收錄核心科目及選修科精選題目</p>
   </header>
 
   <div class="container">
-    <div class="card">
-      <h2>關於這個網站</h2>
-      <p>這是我透過 GitHub Pages 架設的第一個網頁！我會在這裡整理各種科目的重點與資源。</p>
+    <h2 class="section-title">科目分類（請於下方雲端資料夾點選對應科目）</h2>
+    
+    <div class="grid">
+      <div class="card">
+        <div>
+          <h3>中國語文 (Chinese)</h3>
+          <p>閱讀理解、寫作及範文相關練習題目。</p>
+        </div>
+        <a href="#drive-viewer" class="btn">瀏覽中文題目</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>英國語文 (English)</h3>
+          <p>Reading、Writing、Listening 綜合練習卷。</p>
+        </div>
+        <a href="#drive-viewer" class="btn">瀏覽英文題目</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>數學科 (Mathematics)</h3>
+          <p>必修部分 (Core) 歷屆試題與模擬練習。</p>
+        </div>
+        <a href="#drive-viewer" class="btn">瀏覽數學題目</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>生物科 (Biology)</h3>
+          <p>細胞、遺傳、生態學等各課題練習題目。</p>
+        </div>
+        <a href="#drive-viewer" class="btn">瀏覽生物題目</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>經濟科 (Economics)</h3>
+          <p>微觀經濟與宏觀經濟學試題及題解。</p>
+        </div>
+        <a href="#drive-viewer" class="btn">瀏覽經濟題目</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <h3>資訊及通訊科技 (ICT)</h3>
+          <p>資訊處理、程式編寫及資料庫相關題目。</p>
+        </div>
+        <a href="#drive-viewer" class="btn">瀏覽 ICT 題目</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>科目分類</h2>
-      <ul>
-        <li><strong>中國語文</strong>：範文重點與寫作技巧</li>
-        <li><strong>英國語文</strong>：常用詞彙與文法整理</li>
-        <li><strong>數學科</strong>：公式表與題型練習</li>
-      </ul>
-      <a href="#" class="btn">查看更多筆記</a>
+    <div class="drive-box" id="drive-viewer">
+      <div class="drive-header">
+        <h2 class="section-title" style="margin: 0;">題目雲端資料夾</h2>
+        <a href="https://drive.google.com/drive/folders/172ZhelD12dzCTb6jdMZii3LS56F6arwX" target="_blank" class="btn" style="background-color: #27ae60;">另開視窗開啟 Google Drive</a>
+      </div>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0;">提示：直接在下方視窗雙擊資料夾即可進入各科（中、英、數、生物、經濟、ICT）下載或檢視題目。</p>
+      
+      <!-- 內嵌你的 Google Drive 資料夾 -->
+      <iframe src="https://drive.google.com/embeddedfolderview?id=172ZhelD12dzCTb6jdMZii3LS56F6arwX#list" title="DSE 題目資料夾"></iframe>
     </div>
   </div>
 
